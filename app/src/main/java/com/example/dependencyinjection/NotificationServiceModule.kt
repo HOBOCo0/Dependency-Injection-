@@ -7,6 +7,6 @@ import dagger.Provides
 class NotificationServiceModule {
     @Provides
     fun getMessageService():NotificationService{
-        return getMessageService()
+        return MessageService()
     }
 }
