@@ -6,7 +6,7 @@ import dagger.Component
     consumers will ask component to provide all the required objects
  */
 
-@Component
+@Component(modules = [NotificationServiceModule::class,UserRepositoryModule::class])
 interface UserRegistrationComponent {
     fun inject(mainActivity: MainActivity)
 }
