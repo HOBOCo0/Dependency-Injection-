@@ -8,10 +8,5 @@ import dagger.Component
 
 @Component
 interface UserRegistrationComponent {
-
-    // with the help of this dagger will create userRegistration Object when it is called directly in any class
-    fun getUserRegistrationService():UserRegistrationService
-
-    // with the help of this dagger will create emailService Object when it is called directly in any class
-    fun getEmailService():EmailService
+    fun inject(mainActivity: MainActivity)
 }
