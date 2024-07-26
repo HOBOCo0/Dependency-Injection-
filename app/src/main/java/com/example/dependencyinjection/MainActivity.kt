@@ -16,13 +16,23 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        // manually creating the objects/ dependencies
+        val emailService = EmailService()
+        val userRepository = UserRepository()
 
-        val userRegistrationService = UserRegistrationService()
-        userRegistrationService.registerUser("xyz.com","1112233")
+
+     /*    manually injecting the dependencies to other class
+                but there is some problem it this if we have to use this class in other multiple
+                files so we need to create these objects manually and we need to inject it .
+                We can do this using dagger more efficiently.
+
+      */
+        val userRegistrationService = UserRegistrationService(userRepository, emailService)
+        userRegistrationService.registerUser("xyz.com", "1112233")
     }
 }
 /*
-we are trying to create user registration without DI  but here there are some problems
+we are trying to create user registration using manual DI  advantage:-
 
    1/ unit testing:- as we can see there are lot of dependency on other classes
                  so not possible to implement unit testing.

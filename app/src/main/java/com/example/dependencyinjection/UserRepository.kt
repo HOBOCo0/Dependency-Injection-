@@ -4,7 +4,7 @@ import android.util.Log
 
 class UserRepository {
     fun saveUser(email: String, pass: String){
-        Log.d("UserRegistration","User Saved in DB")
+        Log.d("UserRegistration","User Saved in DBB")
     }
 }
 
