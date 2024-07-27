@@ -4,12 +4,14 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Named
 
+// Before this addition of parameter the object of this module was created by dagger
+// by calling its parameter but now we have to create the the object of the module.
 @Module
-class NotificationServiceModule {
+class NotificationServiceModule (private val retryCount: Int){
     @MessageQualifier
     @Provides
     fun getMessageService():NotificationService{
-        return MessageService()
+        return MessageService(retryCount)
     }
 
     // we can use this named at te time of calling as well
