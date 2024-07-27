@@ -2,6 +2,7 @@ package com.example.dependencyinjection
 
 import android.provider.ContactsContract.CommonDataKinds.Email
 import javax.inject.Inject
+import javax.inject.Named
 
 class UserRegistrationService @Inject constructor(
 
@@ -10,6 +11,9 @@ class UserRegistrationService @Inject constructor(
 
     // instead of creating object in this class we manually inject the object.
     private val userRepository: UserRepository,
+
+    //this helps dagger to understand which object to create
+    @Named("Email")
     private val notificationService: NotificationService
 ) {
     fun registerUser(email: String, pass: String) {
