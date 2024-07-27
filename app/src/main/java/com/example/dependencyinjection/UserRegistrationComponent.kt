@@ -2,6 +2,7 @@ package com.example.dependencyinjection
 
 import dagger.BindsInstance
 import dagger.Component
+import dagger.Subcomponent
 
 /*
     This component will create objects for consumer classes when they need,
@@ -9,17 +10,17 @@ import dagger.Component
  */
 
 @ActivityScope // makes available throughout activity
-@Component( dependencies = [AppComponent::class],
+@Subcomponent(
     modules = [NotificationServiceModule::class,
         UserRepositoryModule::class]
 )
 interface UserRegistrationComponent {
     fun inject(mainActivity: MainActivity)
 
-    @Component.Factory
+    @Subcomponent.Factory
     interface Factory {
 
         // @BindInstance binds the value to the component
-        fun create(@BindsInstance retryCount: Int, appComponent: AppComponent): UserRegistrationComponent
+        fun create(@BindsInstance retryCount: Int,): UserRegistrationComponent
     }
 }

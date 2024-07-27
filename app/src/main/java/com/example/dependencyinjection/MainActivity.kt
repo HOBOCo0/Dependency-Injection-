@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val appComponent = (application as UserApplication).appComponent
-        DaggerUserRegistrationComponent.factory().create(5,appComponent).inject(this)
+        appComponent.getUserRegistrationComponentFactory().create(5).inject(this)
 
         userRegistrationService.registerUser("xyz.com", "1112233")
     }
