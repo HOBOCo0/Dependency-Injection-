@@ -22,13 +22,3 @@ class UserRegistrationService @Inject constructor(
     }
 }
 
-/*
-Problem :- what if this UserRepository and NotificationService is an interface and some classes are
-            implementing it and they are passed in constructor (this way we can implement a loosely coupled dependencies)?
-            Then how will this dependency injection is going to work ? Because dagger will not know which class to pick to create object for Interfaces.
-
-Solution:- we have to tell dagger which implementation(class) to pick because we can not create objects of interfaces. By creating Module and Provides
-
- */
-
-

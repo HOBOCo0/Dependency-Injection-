@@ -8,7 +8,7 @@ import javax.inject.Singleton
 interface UserRepository{
     fun saveUser(email: String, pass: String)
 }
-@ApplicationScope
+@ActivityScope
 class SQLRepository @Inject constructor(val analyticService: AnalyticService):UserRepository{
     override fun saveUser(email: String, pass: String){
         Log.d("UserRegistration","User Saved in DBB")
