@@ -9,7 +9,7 @@ import javax.inject.Singleton
 // by calling its parameter but now we have to create the the object of the module.
 @Module
 class NotificationServiceModule (){
-    @Singleton
+    @ApplicationScope
     @MessageQualifier
     @Provides
     fun getMessageService(retryCount: Int):NotificationService{

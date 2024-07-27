@@ -21,7 +21,7 @@ abstract class UserRepositoryModule {
 //    }
 
     // we can also use @bind annotation
-    @Singleton
+    @ApplicationScope
     @Binds
     abstract fun getSQLRepository(sqlRepository: SQLRepository):UserRepository
 }

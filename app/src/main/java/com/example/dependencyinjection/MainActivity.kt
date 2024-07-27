@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         // we are creating the module object using factory and passing the value in the component  so that dagger can use the value and create
         // the dependency and inject at the required fields or constructors
-        DaggerUserRegistrationComponent.factory().create(5).inject(this)
+        (application as UserApplication).userRegistrationComponent.inject(this)
         userRegistrationService.registerUser("xyz.com", "1112233")
     }
 }
