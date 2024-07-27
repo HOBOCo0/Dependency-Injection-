@@ -17,10 +17,11 @@ import dagger.Subcomponent
 interface UserRegistrationComponent {
     fun inject(mainActivity: MainActivity)
 
-    @Subcomponent.Factory
-    interface Factory {
+    @Subcomponent.Builder
+    interface Builder {
+        fun build(): UserRegistrationComponent
 
+        fun retryCount(@BindsInstance retryCount: Int):Builder
         // @BindInstance binds the value to the component
-        fun create(@BindsInstance retryCount: Int,): UserRegistrationComponent
     }
 }
