@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
 
     @Inject // it tells these fields need injection (this is field injection)
     lateinit var userRegistrationService: UserRegistrationService
+
     @Inject
     lateinit var emailService: EmailService
     override fun onCreate(savedInstanceState: Bundle?) {
