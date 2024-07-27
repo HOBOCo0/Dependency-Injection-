@@ -24,11 +24,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         // here all the dependencies are created by dagger and injected
-        // userRegistrationService have dependencies of EmailService and UserRepository
+        // userRegistrationService have dependencies of NotificationService and UserRepository (which are interfaces)
 
-        // we are creating the module object manually and passing the value to it so that dagger can create
+        // we are creating the module object using factory and passing the value in the component  so that dagger can use the value and create
         // the dependency and inject at the required fields or constructors
-        DaggerUserRegistrationComponent.builder().notificationServiceModule(NotificationServiceModule(5)).build().inject(this)
+        DaggerUserRegistrationComponent.factory().create(5).inject(this)
         userRegistrationService.registerUser("xyz.com", "1112233")
     }
 }
@@ -40,5 +40,12 @@ Till now we wrote  code where the values is known at the compile time and the da
 
  so to solve this we have different methods:-
   what we will do is we will provide values to the dagger and dagger will provide objects to us.
+    method 1-
+      by creating the module object manually and passing the value to it so that dagger can create
+      the dependency and inject at the required fields or constructors.
+      problem- but sometimes developer might forget to create the module object
+    method 2-
+        By using factories(In general factories are used for creating objects)
+
  */
 
