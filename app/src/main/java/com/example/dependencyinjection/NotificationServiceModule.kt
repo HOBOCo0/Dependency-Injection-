@@ -3,11 +3,13 @@ package com.example.dependencyinjection
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
+import javax.inject.Singleton
 
 // Before this addition of parameter the object of this module was created by dagger
 // by calling its parameter but now we have to create the the object of the module.
 @Module
 class NotificationServiceModule (){
+    @Singleton
     @MessageQualifier
     @Provides
     fun getMessageService(retryCount: Int):NotificationService{

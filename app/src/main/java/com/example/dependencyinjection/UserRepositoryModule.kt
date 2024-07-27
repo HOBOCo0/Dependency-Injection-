@@ -3,6 +3,7 @@ package com.example.dependencyinjection
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 abstract class UserRepositoryModule {
@@ -20,6 +21,7 @@ abstract class UserRepositoryModule {
 //    }
 
     // we can also use @bind annotation
+    @Singleton
     @Binds
     abstract fun getSQLRepository(sqlRepository: SQLRepository):UserRepository
 }
